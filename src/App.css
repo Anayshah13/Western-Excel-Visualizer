@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('/western_background.png');
+  background-image: url('western_background.png');
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -88,11 +88,11 @@ body {
 
 .chart-box {
   width: 90%;  
-  height: 16vw;
+  height: 20vw;
   background: #ffffff;
   border: 0.3vw solid #cecece;
   border-radius: 1.5vw;
-  box-shadow: 0 0.3vw 0.8vw rgba(0,0,0,0.15);
+  box-shadow: 0 0.3vw 0.8vw rgba(120, 8, 8, 0.15);
   padding: 12px;
   color: #000000a6;
 }
