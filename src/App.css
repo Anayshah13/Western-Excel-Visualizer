@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('western_background.png');
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.dashboard-container {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 5vw 3vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12vw;
+}
+
+
+.mode-button {
+  font-family: 'Monserrat', sans-serif;
+  width: 18vw; 
+  height: 18vw; 
+  background: #d3d3d3fc;
+  border: 0.4vw solid #a5a5a5;
+  font-size: 1.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.mode-button:hover {
+  background: #efefeffa;
+  transform: scale(1.05);
+}
+
+.icon-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.parameter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.parameter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 0.35rem 0.85rem;
+  border: 0.21vw solid #152b99;
+  border-radius: 0.375vw;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-style:bold;
+}
+
+.chart-scroll-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  gap: 1.5vw;
+  width: 100%;
+}
+
+.chart-box {
+  width: 90%;  
+  height: 16vw;
+  background: #ffffff;
+  border: 0.3vw solid #cecece;
+  border-radius: 1.5vw;
+  box-shadow: 0 0.3vw 0.8vw rgba(0,0,0,0.15);
+  padding: 12px;
+  color: #000000a6;
+}
+
+
+.chart-title {
+  font-weight: 800;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.footer{
+  margin-bottom: 1vw;
+  padding: 0.5vw;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #a3a7b1;
+  background-color: rgba(255, 255, 255, 0.042);
+}
+
+@font-face {
+  font-family: 'Monserrat'; 
+  src: url('Montserrat.ttf') format('truetype'); 
+}
+
+h1{
+  font-family: 'Monserrat', sans-serif;
+  color: rgb(22, 31, 190);
+  font-size: 3.6rem;
+  margin-bottom: 7vw;
+  text-shadow: 0.2vw 0.2vw rgba(202, 201, 201, 0.94);
+  font-style:bold;
+  font-style:italic;
+}

@@ -1,0 +1,132 @@
+## 🛣️ PROJECT ROADMAP — EXCEL DASHBOARD IN REACT
+
+---
+
+### 🧱 1. **Project Setup**
+
+* Set up a new React app (with Vite or CRA)
+* Install required libraries:
+
+  * `exceljs` – to parse `.xlsx` Excel files
+  * `recharts` or `chart.js` – to visualize data
+  * `html2canvas` + `jspdf` – for PDF download
+  * (Optional) Tailwind or other CSS lib for styling
+
+---
+
+### 📤 2. **File Upload System**
+
+* Add an `<input type="file" />` to allow users to upload `.xlsx` files
+* Read the uploaded file using `xlsx`
+* Parse all relevant sheets into usable JSON
+
+✅ **Goal**: At this stage, log the cleaned JSON to the console.
+
+---
+
+### 🧹 3. **Data Cleaning & Normalization**
+
+* Standardize sheet formats (some rows may be time, others may be NaN)
+* Extract:
+
+  * Parameter names (like "Casting I")
+  * Dates as X-axis
+  * Values per day per parameter
+* Store data in a format like:
+
+```js
+[
+  {
+    name: "Casting I",
+    data: [ { date: '2025-04-01', value: 83300 }, ... ]
+  },
+  ...
+]
+```
+
+✅ **Goal**: Unified format across months/sheets for all charts
+
+---
+
+### 📊 4. **Chart Generation**
+
+* Loop through all parameters
+* Render line/bar charts for each
+* Use `recharts` (recommended) or `chart.js`
+* Let user scroll through them or group by month/section
+
+✅ **Goal**: You should see all 60–70 parameter charts visually
+
+---
+
+### 🔍 5. **Chart Controls (Optional UI Enhancements)**
+
+* Add filters/sorting:
+
+  * Show specific parameters only
+  * Group by sheet/month
+  * Search parameter by name
+* Use dropdowns, toggles, or search bars
+
+✅ **Goal**: Make the dashboard more usable for real exploration
+
+---
+
+### 🧾 6. **Download Charts as PDF**
+
+* Wrap each chart in a `div` with `ref`
+* Use `html2canvas` + `jspdf` to:
+
+  * Convert chart `div`s into images
+  * Generate multi-page PDF
+  * Add download button: “Download All Charts”
+
+✅ **Goal**: One click → full PDF report
+
+---
+
+### 🧠 7. **(Optional) Insights & Summary Panel**
+
+* Calculate total, average, min/max for each parameter
+* Show KPIs or highlights (e.g., "Highest Production Day", etc.)
+* Use cards, badges, or sidebars
+
+✅ **Goal**: Give instant value beyond just graphs
+
+---
+
+### 🧪 8. **Testing + Error Handling**
+
+* Handle bad uploads (non-Excel, empty sheets, etc.)
+* Show loading states while parsing
+* Display fallback if data is missing or broken
+
+✅ **Goal**: Robust UX even for non-tech-savvy users
+
+---
+
+### 🚀 9. **Packaging & Hosting**
+
+* Optional but awesome: Deploy to Vercel/Netlify
+* Add favicon, loading animations, etc.
+* Share the dashboard with stakeholders
+
+---
+
+## 🧩 Tech Stack Summary
+
+| Purpose            | Tool                                |
+| ------------------ | ----------------------------------- |
+| Framework          | React (Vite or CRA)                 |
+| Excel Parser       | `xlsx`                              |
+| Charts             | `recharts` (or `chart.js`)          |
+| PDF Export         | `html2canvas` + `jspdf`             |
+| Styling (optional) | Tailwind, Bootstrap, or CSS modules |
+
+---
+
+## ✅ You're Ready!
+
+Once you reach step 3 (cleaned JSON), you're at the **heart** of the project. Everything else builds naturally from there.
+
+Want a **starter scaffold** next — or want to begin designing the UI layout first?
