@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('western_background.png');
+  background-image: url('./western_background.png');
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
