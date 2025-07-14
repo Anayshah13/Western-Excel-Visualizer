@@ -1,12 +1,29 @@
-# React + Vite
+🏭 Western Metals Excel Visualizer
+A simple, frontend-only tool for uploading and visualizing Excel-based production data for factories like Western Metals. Allows filtering by parameter and date using an intuitive slider.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📸 Demo
+Upload your Excel .xlsx file → Select parameters → Filter date range → Instantly visualize the data.
 
-Currently, two official plugins are available:
+🚀 Features
+📤 Upload .xlsx Excel files (multi-sheet supported)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📊 Plot 10+ factory parameters using interactive graphs
 
-## Expanding the ESLint configuration
+📅 Smart date range slider initialized to full available range
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🪄 Filter parameters dynamically using a tag selector
+
+🧠 Displays average values below each chart
+
+⚡ Instant frontend-only parsing and charting (no backend needed)
+
+📦 Tech Stack
+React
+
+Recharts for charts
+
+rc-slider for date range slider
+
+SheetJS (xlsx) for Excel parsing
+
+Day.js for date handling
