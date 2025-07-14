@@ -68,7 +68,7 @@ function Dashboard() {
         <label htmlFor="file-upload" className="mode-button">
           <div className="icon-label">
             <BsUpload size={48} />
-            <ExcelReader
+            <ExcelReader // This renders another input type="file" inside a label
               onDataLoaded={(parsedData) => {
                 setExcelData(parsedData);
                 setMode("upload");
@@ -86,7 +86,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
+      
       {mode && (
         <>
           <ParameterList
