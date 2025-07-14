@@ -25,6 +25,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [dateRange, setDateRange] = useState([0, 0]);
   const [allDates, setAllDates] = useState([]);
+  const [isSidebarHovered, setIsSidebarHovered] = useState(false);
 
   const toggleParam = (param) => {
     setSelectedParams((prev) =>
@@ -88,9 +89,10 @@ function Dashboard() {
       applyDateFilter(excelData, dateRange, allDates);
     }
   }, [dateRange]);
-
+  const dashboardContainerClass = `dashboard-container ${isSidebarHovered ? 'sidebar-expanded' : ''}`;
   return (
-    <div className="dashboard-container">
+    <>
+    <div className={dashboardContainerClass}>
       <div className="logo-container">
         <h1>Production Analysis</h1>
       </div>
@@ -103,7 +105,7 @@ function Dashboard() {
               onDataLoaded={handleDataLoaded}
               setFileName={setFileName}
             />
-            <span>{fileName ? `Uploaded: ${fileName}` : "Upload"}</span>
+            <span>{fileName ? `Uploaded: ${fileName}` : <>Upload <br />(.xlsx)</>}</span>
           </div>
         </label>
 
@@ -115,58 +117,66 @@ function Dashboard() {
         </div>
       </div>
 
-      {mode && allDates.length > 1 && (
-        <div style={{ margin: "50px 0", width: "75%" }}>
-          <div style={{ marginBottom: 10, fontWeight: "700", color: "#000000ff", fontSize: "1.2rem", fontFamily: "Monserrat" }}>
-            From: {allDates[dateRange[0]]} &nbsp; | &nbsp; To: {allDates[dateRange[1]]}
-          </div>
-          <Slider
-            range
-            min={0}
-            max={allDates.length - 1}
-            value={dateRange}
-            onChange={(val) => setDateRange(val)}
-            trackStyle={[
-              {
-                backgroundColor: "#27b039ff",
-                height: 12, 
-              },
-            ]}
-            handleStyle={[
-              {
-                borderColor: "#152b99",
-                backgroundColor: "#fff",
-                height: 24, 
-                width: 24,  
-                marginTop: -7, 
-              },
-              {
-                borderColor: "#152b99",
-                backgroundColor: "#fff",
-                height: 24,
-                width: 24, 
-                marginTop: -7, 
-              },
-            ]}
-            railStyle={{
-              backgroundColor: "#ccc",
-              height: 12,
-            }}
-          />
+{mode && (
+  <>
+    <div
+      className="sidebar"
+      onMouseEnter={() => setIsSidebarHovered(true)}
+      onMouseLeave={() => setIsSidebarHovered(false)}
+    >
+      <div style={{ margin: "50px 0", width: "75%" }}>
+        <div
+          style={{
+            marginBottom: 2,
+            fontWeight: "700",
+            color: "#000000ff",
+            fontSize: "1.2rem",
+            fontFamily: "Montserrat",
+          }}
+        >
+          From: {allDates[dateRange[0]]} &nbsp; | &nbsp; To: {allDates[dateRange[1]]}
         </div>
-      )}
 
-      {mode && (
-        <>
-          <ParameterList
-            parameters={params}
-            selected={selectedParams}
-            onToggle={toggleParam}
-          />
-          <ChartContainer selected={selectedParams} data={filteredData} />
-        </>
-      )}
+        <Slider
+          range
+          min={0}
+          max={allDates.length - 1}
+          value={dateRange}
+          onChange={(val) => setDateRange(val)}
+          trackStyle={[{ backgroundColor: "#27b039ff", height: 12 }]}
+          handleStyle={[
+            {
+              borderColor: "#152b99",
+              backgroundColor: "#fff",
+              height: 24,
+              width: 24,
+              marginTop: -7,
+            },
+            {
+              borderColor: "#152b99",
+              backgroundColor: "#fff",
+              height: 24,
+              width: 24,
+              marginTop: -7,
+            },
+          ]}
+          railStyle={{ backgroundColor: "#ccc", height: 12 }}
+        />
+      </div>
+
+    <div>
+      <ParameterList
+        parameters={params}
+        selected={selectedParams}
+        onToggle={toggleParam}
+        />
     </div>
+  </div>
+  </>
+)}
+  <ChartContainer selected={selectedParams} data={filteredData} />
+    </div>
+    </>
   );
 }
 

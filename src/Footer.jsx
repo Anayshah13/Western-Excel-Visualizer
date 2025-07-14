@@ -1,7 +1,7 @@
 function Footer(){
     return(
         <footer>
-            <div className="footer">&copy; {new Date().toLocaleDateString()} Anay's Western Database</div>
+            <div className="footer">&copy; {new Date().toLocaleDateString()} Western Metals Product Visualizer by Anay Shah</div>
         </footer>
     );
 }
