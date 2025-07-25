@@ -17,6 +17,10 @@ const EXISTING_FILE_NAME = "sample.xlsx";
 const EXCEL_FILE_PATH = `/${EXISTING_FILE_NAME}`;
 
 function Dashboard() {
+  const [chartType, setChartType] = useState('line');
+  const handleChartTypeToggle = (event) => {
+    setChartType(event.target.checked ? 'bar' : 'line');
+  };
   const [mode, setMode] = useState(null);
   const [selectedParams, setSelectedParams] = useState([]);
   const [fileName, setFileName] = useState("");
@@ -158,12 +162,19 @@ function Dashboard() {
 
       {mode && (
         <>
+          <div class="toggle-button-cover">
+          <div id="button-3" class="button r">
+          <input class="checkbox" type="checkbox" onChange={handleChartTypeToggle} checked={chartType === 'bar'}/>
+          <div class="knobs"/>
+          <div class="layer"/>
+          </div>
+          </div>
           <ParameterList
             parameters={params}
             selected={selectedParams}
             onToggle={toggleParam}
           />
-          <ChartContainer selected={selectedParams} data={filteredData} />
+          <ChartContainer selected={selectedParams} data={filteredData} chartType={chartType}/>
         </>
       )}
     </div>
