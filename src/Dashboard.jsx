@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import ParameterList from "./ParameterList";
+import Slider from "rc-slider";
 import ChartContainer from "./ChartContainer";
-import { BsUpload } from "react-icons/bs";
 import { HiDocumentText } from "react-icons/hi2";
 import ExcelReader, { parseExcelData } from "./ExcelReader";
 import params from "./constants/params";
-import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { MdFileUpload } from "react-icons/md";
+
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
@@ -99,7 +100,7 @@ function Dashboard() {
       modeButtons.forEach(button => {
         button.style.width = "12vw";
         button.style.height = "12vw";
-        button.style.fontSize = "1rem";
+        button.style.fontSize = "0.88rem";
         button.style.marginBottom = "0vw";
       });
       title.forEach(button => {
@@ -119,9 +120,9 @@ function Dashboard() {
       <div className="button-group">
         <label htmlFor="file-upload" className="mode-button">
           <div className="icon-label">
-            <BsUpload size={48} />
+            <MdFileUpload size={60}/>
             <ExcelReader
-              onDataLoaded={(data) => handleDataLoaded(data, data.fileName)} // Pass fileName from reader
+              onDataLoaded={(data) => handleDataLoaded(data, data.fileName)} 
               setFileName={setFileName}
             />
             <span>{fileName ? `Using: ${fileName}` : "Upload Data"}</span>

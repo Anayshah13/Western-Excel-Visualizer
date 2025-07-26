@@ -16,6 +16,8 @@ import {
 
 const CustomTooltip = ({ active, payload, label, average }) => {
   if (active && payload && payload.length) {
+    const value = payload[0].value;
+
     return (
       <div className="custom-tooltip" style={{
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
@@ -24,7 +26,7 @@ const CustomTooltip = ({ active, payload, label, average }) => {
       }}>
         <p className="label">{`${label}`}</p>
         <p className="value" style={{ color: '#2830cdff' }}>
-          {`Value: ${payload[0].value}`}
+          {`Value: ${value === 0 ? 'null' : value}`}
         </p>
         <p className="average" style={{ color: 'red' }}>
           {`Avg: ${average}`}
@@ -32,12 +34,17 @@ const CustomTooltip = ({ active, payload, label, average }) => {
       </div>
     );
   }
+
   return null;
 };
 
 function calculateAverage(values) {
-  const valid = values.filter((v) => typeof v === "number" && !isNaN(v));
-  if (valid.length === 0) return "N/A";
+  const valid = values.filter((v) => typeof v === "number" && !isNaN(v) && v !== 0);
+
+  if (valid.length === 0) {
+    return "N/A";
+  }
+
   const sum = valid.reduce((a, b) => a + b, 0);
   return (sum / valid.length).toFixed(2);
 }
