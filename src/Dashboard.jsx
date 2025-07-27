@@ -101,7 +101,7 @@ function Dashboard() {
         button.style.width = "12vw";
         button.style.height = "12vw";
         button.style.fontSize = "0.88rem";
-        button.style.marginBottom = "0vw";
+        button.style.marginBottom = "4vw";
       });
       title.forEach(button => {
         button.style.marginBottom = "6vw";
@@ -137,11 +137,27 @@ function Dashboard() {
         </div>
       </div>
 
-      {mode && allDates.length > 1 && (
-        <div style={{ margin: "50px 0", width: "75%" }}>
-          <div style={{ marginBottom: 10, fontWeight: "700", color: "#000000ff", fontSize: "1.4rem", fontFamily: "Garamond" }}>
+      {mode && (
+        <>
+          <div style={{ margin: "auto", width: "85%", marginBottom:"2vw"}}>
+          <ParameterList
+            parameters={params}
+            selected={selectedParams}
+            onToggle={toggleParam}
+          />
+          </div>
+          <div className="toggle-button-cover">
+            <div id="button-3" className="button r">
+              <input className="checkbox" type="checkbox" onChange={handleChartTypeToggle} checked={chartType === 'bar'}/>
+              <div className="knobs"/>
+              <div className="layer"/>
+            </div>
+          </div>
+        <div style={{ margin: "0vw", width: "75%", marginBottom:"2vw", marginTop:"0vw"}}>
+          <div style={{ marginBottom: 5, fontWeight: "700", color: "#000000ff", fontSize: "1.4rem", fontFamily: "Garamond" }}>
             From: {allDates[dateRange[0]]} &nbsp; | &nbsp; To: {allDates[dateRange[1]]}
           </div>
+          <div className="slider">
           <Slider
             range
             min={0}
@@ -155,26 +171,13 @@ function Dashboard() {
             ]}
             railStyle={{ backgroundColor: "#ccc", height: 12 }}
           />
-        </div>
-      )}
-
-      {mode && (
-        <>
-          <div className="toggle-button-cover">
-            <div id="button-3" className="button r">
-              <input className="checkbox" type="checkbox" onChange={handleChartTypeToggle} checked={chartType === 'bar'}/>
-              <div className="knobs"/>
-              <div className="layer"/>
-            </div>
           </div>
-          <ParameterList
-            parameters={params}
-            selected={selectedParams}
-            onToggle={toggleParam}
-          />
-          <ChartContainer selected={selectedParams} data={filteredData} chartType={chartType}/>
+        </div>
+        <ChartContainer selected={selectedParams} data={filteredData} chartType={chartType}/>
         </>
       )}
+
+
     </div>
   );
 }

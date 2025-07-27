@@ -25,7 +25,7 @@ const displayNameMap = {
   "Water Hardness (CASTER)": "Water Hardness (CASTER)",
   "Water TDS": "Water TDS",
   "Water Consumption": "Water Consumption",
-  "Water Hardness input": "Water Hardness input"
+  "Water Hardness input": "Water Hardness input",
 };
 
 
