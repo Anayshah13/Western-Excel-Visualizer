@@ -1,64 +1,11 @@
-### 🔍 5. **Chart Controls (Optional UI Enhancements)**
 
-* Add filters/sorting:
-
-  * Show specific parameters only
-  * Group by sheet/month
-  * Search parameter by name
-* Use dropdowns, toggles, or search bars
-
-✅ **Goal**: Make the dashboard more usable for real exploration
-
----
-
-### 🧾 6. **Download Charts as PDF**
-
-* Wrap each chart in a `div` with `ref`
-* Use `html2canvas` + `jspdf` to:
-
-  * Convert chart `div`s into images
-  * Generate multi-page PDF
   * Add download button: “Download All Charts”
-
-✅ **Goal**: One click → full PDF report
-
----
-
-### 🧠 7. **(Optional) Insights & Summary Panel**
-
-* Calculate total, average, min/max for each parameter
-* Show KPIs or highlights (e.g., "Highest Production Day", etc.)
-* Use cards, badges, or sidebars
-
-✅ **Goal**: Give instant value beyond just graphs
-
----
-
-### 🧪 8. **Testing + Error Handling**
-
-* Handle bad uploads (non-Excel, empty sheets, etc.)
-* Show loading states while parsing
-* Display fallback if data is missing or broken
-
-✅ **Goal**: Robust UX even for non-tech-savvy users
-
----
-
-### 🚀 9. **Packaging & Hosting**
-
-* Optional but awesome: Deploy to Vercel/Netlify
-* Add favicon, loading animations, etc.
-* Share the dashboard with stakeholders
-
----
-
-## 🧩 Tech Stack Summary
+  * Calculate total, average, min/max for each parameter
 
 | Purpose            | Tool                                |
 | ------------------ | ----------------------------------- |
 | Framework          | React (Vite or CRA)                 |
 | Excel Parser       | `xlsx`                              |
-| Charts             | `recharts` (or `chart.js`)          |
+| Charts             | `recharts`                           
 | PDF Export         | `html2canvas` + `jspdf`             |
-| Styling (optional) | Tailwind, Bootstrap, or CSS modules |
 

@@ -1,7 +1,6 @@
 import * as XLSX from "xlsx";
 import params from "./constants/params";
 
-// Helper function to format date (Month and Day only)
 const formatDate = (dateValue) => {
   if (dateValue instanceof Date) {
     const correctedDate = new Date(dateValue.getTime() + 24 * 60 * 60 * 1000);
@@ -13,13 +12,11 @@ const formatDate = (dateValue) => {
   return String(dateValue || "").trim();
 };
 
-// Core parsing function used in Dashboard
 export function parseExcelData(arrayBuffer, paramsList) {
   const workbook = XLSX.read(arrayBuffer, { type: "array", cellDates: true });
   const desiredParamsMap = new Set(paramsList);
   const combinedGraphData = [];
 
-  // Loop through each sheet
   workbook.SheetNames.forEach(sheetName => {
     const sheet = workbook.Sheets[sheetName];
     const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: true });
@@ -41,9 +38,8 @@ export function parseExcelData(arrayBuffer, paramsList) {
       }
     });
 
-    // Convert this sheet's paramData into graphData format
     dateHeaders.forEach((date, dayIndex) => {
-      const dayEntry = { date: `${date}` }; // Add sheet name to distinguish overlapping dates
+      const dayEntry = { date: `${date}` };
       Object.keys(paramData).forEach(paramName => {
         const value = paramData[paramName][dayIndex];
         if (value !== null) dayEntry[paramName] = value;
@@ -57,8 +53,6 @@ export function parseExcelData(arrayBuffer, paramsList) {
   return combinedGraphData;
 }
 
-
-// Component for uploading and parsing Excel files
 function ExcelReader({ onDataLoaded, setFileName }) {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];

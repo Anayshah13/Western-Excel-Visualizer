@@ -5,7 +5,8 @@ const parameterGroups = {
     "Ingot Used",
     "Scrap Used",
     "Total Melting",
-    "Ingot in % of Casting"
+    "Ingot in % of Casting",
+    "Metal drained"
   ],
 
   "Furnace": [
@@ -48,6 +49,13 @@ const parameterGroups = {
     "Water TDS",
     "Water Consumption",
     "Water Hardness input"
+  ],
+
+  "Rejections": [
+    "(blisters) Rejection",
+    "(crack) Rejection",
+    "(Black) Rejection",
+    "(marking ) Rejection",
   ]
 };
 

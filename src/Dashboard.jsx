@@ -104,7 +104,8 @@ function Dashboard() {
         button.style.marginBottom = "4vw";
       });
       title.forEach(button => {
-        button.style.marginBottom = "6vw";
+        button.style.marginBottom = "7vw";
+        button.style.fontSize = "3rem";
       });
     } 
     return () => {

@@ -1,5 +1,6 @@
 const displayNameMap = {
   "Casting I": "Casting I",
+  "Metal drained": "Casting Metal Drained",
   "Titanium Born": "Titanium Born",
   "Ingot Used": "Ingot Used",
   "Scrap Used": "Scrap Used",
@@ -26,6 +27,10 @@ const displayNameMap = {
   "Water TDS": "Water TDS",
   "Water Consumption": "Water Consumption",
   "Water Hardness input": "Water Hardness input",
+  "(Black) Rejection": "Black Rejection",
+  "(blisters) Rejection": "Blisters Rejection",
+  "(crack) Rejection": "Crack Rejection",
+  "(marking ) Rejection": "Marking Rejection"
 };
 
 
